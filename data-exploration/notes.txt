@@ -1,0 +1,18 @@
+Comments Embeddings
+- apparently 70,000 of the vectors are identical, and the rest are pretty similar as well.
+  - need to go back to the drawing board for the comment embedding chunk size
+
+
+# FOR LOADING RDS TABLE INTO GLUE
+dyf = glueContext.create_dynamic_frame_from_options(
+    connection_type="postgresql", 
+    connection_options={
+        "url": "jdbc:postgresql://oudstack-embeddingsdb7d86a324-yjlsukqysgox.cywokw31mdlo.us-east-1.rds.amazonaws.com:5432/EmbeddingsDB",
+        "dbtable": "public.embeddings_v2",
+        "user": "postgres", 
+        "password": "",
+    },
+)
+        
+                
+dyf.printSchema()
